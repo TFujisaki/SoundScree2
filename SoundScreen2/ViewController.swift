@@ -9,6 +9,7 @@
 import UIKit
 import CoreMotion
 import AudioToolbox
+import AVFoundation
 
 class ViewController: UIViewController {
     
@@ -16,6 +17,12 @@ class ViewController: UIViewController {
     
     // MotionManager
     let motionManager = CMMotionManager()
+    var audioPlayer: AVAudioPlayer!
+    
+    let url = Bundle.main.bundleURL.appendingPathComponent("test.m4a")
+    
+    // var url = URL()
+    
     
     // Constant
     let updateInterval = 0.05
@@ -33,6 +40,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        
+        
+            // url = Bundle.main.bundleURL.appendingPathComponent("test.m4a")
+        
+            // print("error ", url)
+        
+    
+        
         
        // while true {
         
@@ -80,17 +96,33 @@ class ViewController: UIViewController {
             // Image Viewに画像を設定
             instructionImage.image = image
             
-            
-            
-            var soundId:SystemSoundID = 0
-            
-            // システムサウンドへのパスを指定
-            if let soundUrl:NSURL = NSURL(fileURLWithPath: "/System/Library/Audio/UISounds/alarm.caf") {
+            do {
+                try audioPlayer = AVAudioPlayer(contentsOf:url)
                 
-                // SystemsoundIDを作成して再生実行
-                AudioServicesCreateSystemSoundID(soundUrl, &soundId)
-                AudioServicesPlaySystemSound(soundId)
+                //音楽をバッファに読み込んでおく
+                audioPlayer.prepareToPlay()
+            } catch {
+                print("url   ", url)
+                print(error)
             }
+            
+            audioPlayer.play()
+            
+            
+            // var soundId:SystemSoundID = 0
+            
+            // サウンドへのパスを指定
+            // let audioPath = NSURL(fileURLWithPath: Bundle.main.path(forResource: "名称未設定", ofType: "m4a")!)
+            
+            
+            
+            
+            
+        
+            
+            
+
+            
             
         } else {
             print(" false ")
