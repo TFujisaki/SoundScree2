@@ -8,14 +8,26 @@
 
 import UIKit
 import CoreMotion
+import AudioToolbox
 
 class ViewController: UIViewController {
+    
+    @IBOutlet weak var instructionImage: UIImageView!
     
     // MotionManager
     let motionManager = CMMotionManager()
     
+    // Constant
+    let updateInterval = 0.05
+    let velocityXThreshold = 5.0
+    
+    // Image File name definition
+    let imageFileName = "Artboard.jpg"
+    
+    
     var accelerometerX = 0.0
     var accXTemp = 0.0
+    var velocityX = 0.0
     
 
     override func viewDidLoad() {
@@ -26,7 +38,7 @@ class ViewController: UIViewController {
         
             if motionManager.isAccelerometerAvailable {
                 // intervalの設定 [sec]
-                motionManager.accelerometerUpdateInterval = 0.2
+                motionManager.accelerometerUpdateInterval = updateInterval
             
                 // センサー値の取得開始
                 motionManager.startAccelerometerUpdates(
@@ -47,9 +59,43 @@ class ViewController: UIViewController {
         
         accXTemp = accelerometerX - accXTemp
         
-         print(accXTemp)
+        // print("1: \(accXTemp)")
         
         accXTemp = accelerometerX
+        
+        // print("2: \(accXTemp)")
+        
+        // 速度の計算
+        velocityX = accelerometerX * accelerometerX
+         print("V: \(velocityX)")
+        
+        if velocityX > velocityXThreshold {
+            print(" true ")
+            
+            
+            
+            // バンドルした画像ファイルを読み込み
+            let image = UIImage(named: imageFileName)
+            
+            // Image Viewに画像を設定
+            instructionImage.image = image
+            
+            
+            
+            var soundId:SystemSoundID = 0
+            
+            // システムサウンドへのパスを指定
+            if let soundUrl:NSURL = NSURL(fileURLWithPath: "/System/Library/Audio/UISounds/alarm.caf") {
+                
+                // SystemsoundIDを作成して再生実行
+                AudioServicesCreateSystemSoundID(soundUrl, &soundId)
+                AudioServicesPlaySystemSound(soundId)
+            }
+            
+        } else {
+            print(" false ")
+        }
+        
         
        
     }
