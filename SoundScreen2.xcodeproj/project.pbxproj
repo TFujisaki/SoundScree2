@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1CB3C6202311301400FA07A5 /* test.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 1CBD2F48230FD74400BED038 /* test.m4a */; };
+		1CB3C6232311359700FA07A5 /* take1.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 1CB3C6212311356900FA07A5 /* take1.m4a */; };
+		1CB3C624231135AB00FA07A5 /* take2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 1CB3C6222311357300FA07A5 /* take2.m4a */; };
 		1CBD2F2C230EFDF800BED038 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBD2F2B230EFDF800BED038 /* AppDelegate.swift */; };
 		1CBD2F2E230EFDF800BED038 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBD2F2D230EFDF800BED038 /* ViewController.swift */; };
 		1CBD2F31230EFDF800BED038 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CBD2F2F230EFDF800BED038 /* Main.storyboard */; };
@@ -21,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1CB3C6212311356900FA07A5 /* take1.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = take1.m4a; sourceTree = "<group>"; };
+		1CB3C6222311357300FA07A5 /* take2.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = take2.m4a; sourceTree = "<group>"; };
 		1CBD2F28230EFDF800BED038 /* SoundScreen2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoundScreen2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CBD2F2B230EFDF800BED038 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1CBD2F2D230EFDF800BED038 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +77,8 @@
 			isa = PBXGroup;
 			children = (
 				1CBD2F48230FD74400BED038 /* test.m4a */,
+				1CB3C6212311356900FA07A5 /* take1.m4a */,
+				1CB3C6222311357300FA07A5 /* take2.m4a */,
 				1CBD2F2B230EFDF800BED038 /* AppDelegate.swift */,
 				1CBD2F2D230EFDF800BED038 /* ViewController.swift */,
 				1CBD2F40230FCD6600BED038 /* Artboard.jpg */,
@@ -154,6 +160,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CB3C624231135AB00FA07A5 /* take2.m4a in Resources */,
+				1CB3C6232311359700FA07A5 /* take1.m4a in Resources */,
 				1CB3C6202311301400FA07A5 /* test.m4a in Resources */,
 				1CBD2F36230EFDFD00BED038 /* LaunchScreen.storyboard in Resources */,
 				1CBD2F33230EFDFD00BED038 /* Assets.xcassets in Resources */,
