@@ -10,6 +10,7 @@ import UIKit
 import CoreMotion
 import AudioToolbox
 import AVFoundation
+import Foundation
 
 class ViewController: UIViewController {
     
@@ -18,15 +19,10 @@ class ViewController: UIViewController {
     // MotionManager
     let motionManager = CMMotionManager()
     var audioPlayer: AVAudioPlayer!
-    
-    let url = Bundle.main.bundleURL.appendingPathComponent("test.m4a")
-    
-    // var url = URL()
-    
-    
+
     // Constant
     let updateInterval = 0.05
-    let velocityXThreshold = 5.0
+    let velocityXThreshold = 4.0
     
     // Image File name definition
     let imageFileName = "Artboard.jpg"
@@ -41,13 +37,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        
-        
-            // url = Bundle.main.bundleURL.appendingPathComponent("test.m4a")
-        
-            // print("error ", url)
-        
-    
         
         
        // while true {
@@ -83,53 +72,35 @@ class ViewController: UIViewController {
         
         // 速度の計算
         velocityX = accelerometerX * accelerometerX
-         print("V: \(velocityX)")
+        print("V: \(velocityX)")
         
         if velocityX > velocityXThreshold {
             print(" true ")
-            
-            
-            
+
             // バンドルした画像ファイルを読み込み
             let image = UIImage(named: imageFileName)
             
             // Image Viewに画像を設定
             instructionImage.image = image
             
+            
+            let url = Bundle.main.url(forResource: "test", withExtension: "m4a")
+            
             do {
-                try audioPlayer = AVAudioPlayer(contentsOf:url)
+                try audioPlayer = AVAudioPlayer(contentsOf: url!)
                 
                 //音楽をバッファに読み込んでおく
                 audioPlayer.prepareToPlay()
             } catch {
-                print("url   ", url)
+                print("path   ", url!)
                 print(error)
             }
             
             audioPlayer.play()
             
-            
-            // var soundId:SystemSoundID = 0
-            
-            // サウンドへのパスを指定
-            // let audioPath = NSURL(fileURLWithPath: Bundle.main.path(forResource: "名称未設定", ofType: "m4a")!)
-            
-            
-            
-            
-            
-        
-            
-            
-
-            
-            
         } else {
             print(" false ")
         }
-        
-        
-       
     }
     
     // センサー取得を止める場合

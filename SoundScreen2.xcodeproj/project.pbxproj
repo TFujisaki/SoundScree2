@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1CB3C6202311301400FA07A5 /* test.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 1CBD2F48230FD74400BED038 /* test.m4a */; };
 		1CBD2F2C230EFDF800BED038 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBD2F2B230EFDF800BED038 /* AppDelegate.swift */; };
 		1CBD2F2E230EFDF800BED038 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBD2F2D230EFDF800BED038 /* ViewController.swift */; };
 		1CBD2F31230EFDF800BED038 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CBD2F2F230EFDF800BED038 /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 		1CBD2F43230FD27400BED038 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CBD2F42230FD27400BED038 /* CoreAudio.framework */; };
 		1CBD2F45230FD2ED00BED038 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CBD2F44230FD2ED00BED038 /* AudioToolbox.framework */; };
 		1CBD2F47230FD3E600BED038 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CBD2F46230FD3E600BED038 /* AVFoundation.framework */; };
+		1CBD2F4A2310004D00BED038 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CBD2F492310004C00BED038 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,7 @@
 		1CBD2F44230FD2ED00BED038 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		1CBD2F46230FD3E600BED038 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		1CBD2F48230FD74400BED038 /* test.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.m4a; sourceTree = "<group>"; };
+		1CBD2F492310004C00BED038 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CBD2F4A2310004D00BED038 /* Foundation.framework in Frameworks */,
 				1CBD2F47230FD3E600BED038 /* AVFoundation.framework in Frameworks */,
 				1CBD2F45230FD2ED00BED038 /* AudioToolbox.framework in Frameworks */,
 				1CBD2F43230FD27400BED038 /* CoreAudio.framework in Frameworks */,
@@ -68,10 +72,10 @@
 		1CBD2F2A230EFDF800BED038 /* SoundScreen2 */ = {
 			isa = PBXGroup;
 			children = (
+				1CBD2F48230FD74400BED038 /* test.m4a */,
 				1CBD2F2B230EFDF800BED038 /* AppDelegate.swift */,
 				1CBD2F2D230EFDF800BED038 /* ViewController.swift */,
 				1CBD2F40230FCD6600BED038 /* Artboard.jpg */,
-				1CBD2F48230FD74400BED038 /* test.m4a */,
 				1CBD2F2F230EFDF800BED038 /* Main.storyboard */,
 				1CBD2F32230EFDFD00BED038 /* Assets.xcassets */,
 				1CBD2F34230EFDFD00BED038 /* LaunchScreen.storyboard */,
@@ -83,6 +87,7 @@
 		1CBD2F3D230EFE1500BED038 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1CBD2F492310004C00BED038 /* Foundation.framework */,
 				1CBD2F46230FD3E600BED038 /* AVFoundation.framework */,
 				1CBD2F44230FD2ED00BED038 /* AudioToolbox.framework */,
 				1CBD2F42230FD27400BED038 /* CoreAudio.framework */,
@@ -149,6 +154,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CB3C6202311301400FA07A5 /* test.m4a in Resources */,
 				1CBD2F36230EFDFD00BED038 /* LaunchScreen.storyboard in Resources */,
 				1CBD2F33230EFDFD00BED038 /* Assets.xcassets in Resources */,
 				1CBD2F31230EFDF800BED038 /* Main.storyboard in Resources */,
