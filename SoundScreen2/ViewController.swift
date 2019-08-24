@@ -21,9 +21,11 @@ class ViewController: UIViewController {
     var audioPlayer: AVAudioPlayer!
 
     // Constant
-    let updateInterval = 0.05
-    let velocityXThreshold = 3.5
+    let updateInterval = 0.01
+    let velocityXThreshold = 5.0
     let volumeSetting: Float = 1.0
+    let startSound = 1
+    let stopSound = 2
     
     // Image File name definition
     let imageFileName = "Artboard.jpg"
@@ -66,7 +68,10 @@ class ViewController: UIViewController {
         if velocityX > velocityXThreshold {
             onoffFlag += 1
             
-            if onoffFlag == 1 {
+            print("flag : \(onoffFlag)")
+            
+            switch onoffFlag {
+            case startSound :
                 print(" true ")
             
                 let url = Bundle.main.url(forResource: soundFileName, withExtension: fileExtension)
@@ -83,15 +88,21 @@ class ViewController: UIViewController {
             
                 audioPlayer.volume = volumeSetting
                 audioPlayer.play()
+                break
                 
-            } else if onoffFlag == 2 {
+            case stopSound:
                 audioPlayer.stop()
-            }
+                break
             
+            default:
+                onoffFlag = 0
+                break
+            }
+           
         } else {
             print(" false ")
         }
-        stopAccelerometer()
+        
     }
     
     // センサー取得を止める場合
