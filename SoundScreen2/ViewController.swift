@@ -31,8 +31,8 @@ class ViewController: UIViewController {
     let imageFileName = "Artboard.jpg"
     
     // Sound File name definition
-    let soundFileName = "take2"
-    let fileExtension = "m4a"
+    let soundFileName = "testSound"
+    let fileExtension = "wav"
     
     var accelerometerX = 0.0
     var accXTemp = 0.0
