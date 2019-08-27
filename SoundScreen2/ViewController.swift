@@ -9,12 +9,18 @@
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet weak var soundOnButton: UIButton!
     @IBOutlet weak var soundOffButton: UIButton!
     
-    // let motionManager = CMMotionManager()
+    
+    @IBOutlet weak var volumePicker: UIPickerView!
+    
+    let dataList = [
+        "Maxmum", "Medium", "Minimum"
+    ]
+    
     var audioPlayer: AVAudioPlayer!
 
     // Constant
@@ -28,6 +34,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        // Delegate設定
+        volumePicker.delegate = self
+        volumePicker.dataSource = self
+        
     }
     
     
@@ -60,6 +71,36 @@ class ViewController: UIViewController {
     @IBAction func soundOffButtonTapped(_ sender: UIButton) {
         soundOff()
     }
+    
+    
+    // UIPickerViewの列の数
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    // UIPickerViewの行数、リストの数
+    func pickerView(_ pickerView: UIPickerView,
+                    numberOfRowsInComponent component: Int) -> Int {
+        return dataList.count
+    }
+    
+    // UIPickerViewの最初の表示
+    func pickerView(_ pickerView: UIPickerView,
+                    titleForRow row: Int,
+                    forComponent component: Int) -> String? {
+        
+        return dataList[row]
+    }
+    
+    // UIPickerViewのRowが選択された時の挙動
+    func pickerView(_ pickerView: UIPickerView,
+                    didSelectRow row: Int,
+                    inComponent component: Int) {
+        
+       // label.text = dataList[row]
+        
+    }
+    
 
 }
 

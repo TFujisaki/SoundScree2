@@ -43,6 +43,10 @@
                                     <action selector="soundOffButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kWT-pb-U2b"/>
                                 </connections>
                             </button>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gFF-b7-nwc">
+                                <rect key="frame" x="26" y="378" width="322" height="164"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" red="0.95647686719894409" green="0.81601929664611816" blue="0.88961160182952881" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -50,6 +54,7 @@
                     <connections>
                         <outlet property="soundOffButton" destination="FDq-AX-xb1" id="H1K-fQ-WFh"/>
                         <outlet property="soundOnButton" destination="8Im-Jn-Wbx" id="8qA-j7-7NF"/>
+                        <outlet property="volumePicker" destination="gFF-b7-nwc" id="U1M-3n-ttI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
