@@ -9,22 +9,21 @@
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class ViewController: UIViewController {
     
     @IBOutlet weak var soundOnButton: UIButton!
     @IBOutlet weak var soundOffButton: UIButton!
     
     
-    @IBOutlet weak var volumePicker: UIPickerView!
-    
-    let dataList = [
-        "Maxmum", "Medium", "Minimum"
-    ]
-    
     var audioPlayer: AVAudioPlayer!
 
     // Constant
     let volumeSetting: Float = 1.0
+    let max: Float = 1.0
+    let med: Float = 0.75
+    let min: Float = 0.5
+    let fadeoutStep: Double = 10
+    let timeInterval = 0.55
   
     // Sound File name definition
     let soundFileName = "testSound"
@@ -33,11 +32,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
-        // Delegate設定
-        volumePicker.delegate = self
-        volumePicker.dataSource = self
         
     }
     
@@ -60,9 +55,12 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     func soundOff() {
+        for i in 1...Int(fadeoutStep) {
+            audioPlayer.volume = 1.0 - Float((1.0/fadeoutStep) * Double(i))
+            Thread.sleep(forTimeInterval: timeInterval)
+        }
         audioPlayer.stop()
     }
-    
     
     @IBAction func soiundOnButtonTapped(_ sender: UIButton) {
         soundOn()
@@ -72,35 +70,5 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         soundOff()
     }
     
-    
-    // UIPickerViewの列の数
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    // UIPickerViewの行数、リストの数
-    func pickerView(_ pickerView: UIPickerView,
-                    numberOfRowsInComponent component: Int) -> Int {
-        return dataList.count
-    }
-    
-    // UIPickerViewの最初の表示
-    func pickerView(_ pickerView: UIPickerView,
-                    titleForRow row: Int,
-                    forComponent component: Int) -> String? {
-        
-        return dataList[row]
-    }
-    
-    // UIPickerViewのRowが選択された時の挙動
-    func pickerView(_ pickerView: UIPickerView,
-                    didSelectRow row: Int,
-                    inComponent component: Int) {
-        
-       // label.text = dataList[row]
-        
-    }
-    
-
 }
 
