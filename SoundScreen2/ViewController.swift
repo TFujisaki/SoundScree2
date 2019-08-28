@@ -56,7 +56,7 @@ class ViewController: UIViewController {
     
     func soundOff() {
         for i in 1...Int(fadeoutStep) {
-            audioPlayer.volume = 1.0 - Float((1.0/fadeoutStep) * Double(i))
+            audioPlayer.volume = Float(max) - Float((Double(max)/fadeoutStep) * Double(i))
             Thread.sleep(forTimeInterval: timeInterval)
         }
         audioPlayer.stop()
