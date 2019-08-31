@@ -16,12 +16,11 @@ class ViewController: UIViewController {
     
     
     var audioPlayer: AVAudioPlayer!
+    var audioSession: AVAudioSession!
 
     // Constant
-    let volumeSetting: Float = 1.0
-    let max: Float = 1.0
-    let med: Float = 0.75
-    let min: Float = 0.5
+    let volumeSetting: Float = 0.1  // Max is 1.0
+    let max: Float = 0.1            // Must be same as volumeSetting
     let fadeoutStep: Double = 10
     let timeInterval = 0.55
   
@@ -34,6 +33,13 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         
+        audioSession = AVAudioSession.sharedInstance()
+        let currentMode = audioSession.mode
+        do {
+            try audioSession.setCategory(AVAudioSession.Category.playback, mode: currentMode)
+        } catch {
+            print("Setting category to AVAudioSessionCategoryPlayback failed.")
+        }
     }
     
     
@@ -43,7 +49,7 @@ class ViewController: UIViewController {
         do {
             try audioPlayer = AVAudioPlayer(contentsOf: url!)
             
-            //サウンドをバッファに読み込んでおく
+            // Buffer
             audioPlayer.prepareToPlay()
         } catch {
             print("url   ", url!)
