@@ -32,6 +32,28 @@ class ViewController: UIViewController {
     // String Constants
     let offText = "フェードアウト"
     
+    // Flag definition
+    // var soundOffFlag: Bool = false
+    
+    
+    var soundOffFlag: Bool = false {
+        willSet {
+            print("willset name: \(self.soundOffFlag)")
+            // print("name が \(oldValue) から \(newValue) に変更されようとしています。")
+            if soundOffFlag {
+                soundOff()
+            }
+        }
+        
+        didSet {
+            print("didset name: \(self.soundOffFlag)")
+            // println("name が \(oldValue) から \(newValue) に変更されました。")
+            if soundOffFlag {
+                soundOff()
+            }
+        }
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,7 +91,6 @@ class ViewController: UIViewController {
     }
     
     func soundOff() {
-        // soundOffButton.setTitle(offText, for: .normal)
         for i in 1...Int(fadeoutStep) {
             audioPlayer.volume = Float(max) - Float((Double(max)/fadeoutStep) * Double(i))
             Thread.sleep(forTimeInterval: timeInterval)
@@ -82,7 +103,9 @@ class ViewController: UIViewController {
     }
     
     @IBAction func soundOffButtonTapped(_ sender: UIButton) {
-        soundOff()
+        // soundOff()
+        soundOffButton.setTitle(offText, for: .normal)
+        soundOffFlag = true
     }
     
     func registerForNotifications() {
