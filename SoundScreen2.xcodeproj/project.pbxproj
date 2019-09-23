@@ -13,7 +13,6 @@
 		1CBD2F31230EFDF800BED038 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CBD2F2F230EFDF800BED038 /* Main.storyboard */; };
 		1CBD2F33230EFDFD00BED038 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CBD2F32230EFDFD00BED038 /* Assets.xcassets */; };
 		1CBD2F36230EFDFD00BED038 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CBD2F34230EFDFD00BED038 /* LaunchScreen.storyboard */; };
-		1CBD2F41230FCD6600BED038 /* Artboard.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1CBD2F40230FCD6600BED038 /* Artboard.jpg */; };
 		1CBD2F43230FD27400BED038 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CBD2F42230FD27400BED038 /* CoreAudio.framework */; };
 		1CBD2F45230FD2ED00BED038 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CBD2F44230FD2ED00BED038 /* AudioToolbox.framework */; };
 		1CBD2F47230FD3E600BED038 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CBD2F46230FD3E600BED038 /* AVFoundation.framework */; };
@@ -30,7 +29,6 @@
 		1CBD2F35230EFDFD00BED038 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1CBD2F37230EFDFD00BED038 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1CBD2F3E230EFE1500BED038 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
-		1CBD2F40230FCD6600BED038 /* Artboard.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Artboard.jpg; sourceTree = "<group>"; };
 		1CBD2F42230FD27400BED038 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		1CBD2F44230FD2ED00BED038 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		1CBD2F46230FD3E600BED038 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -75,7 +73,6 @@
 				1C237CE523141979004587EF /* testSound.wav */,
 				1CBD2F2B230EFDF800BED038 /* AppDelegate.swift */,
 				1CBD2F2D230EFDF800BED038 /* ViewController.swift */,
-				1CBD2F40230FCD6600BED038 /* Artboard.jpg */,
 				1CBD2F2F230EFDF800BED038 /* Main.storyboard */,
 				1CBD2F32230EFDFD00BED038 /* Assets.xcassets */,
 				1CBD2F34230EFDFD00BED038 /* LaunchScreen.storyboard */,
@@ -128,6 +125,7 @@
 				TargetAttributes = {
 					1CBD2F27230EFDF800BED038 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1030;
 					};
 				};
 			};
@@ -158,7 +156,6 @@
 				1CBD2F36230EFDFD00BED038 /* LaunchScreen.storyboard in Resources */,
 				1CBD2F33230EFDFD00BED038 /* Assets.xcassets in Resources */,
 				1CBD2F31230EFDF800BED038 /* Main.storyboard in Resources */,
-				1CBD2F41230FCD6600BED038 /* Artboard.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,7 +244,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -302,7 +299,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -326,7 +323,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.tfujisaki.SoundScreen2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -345,7 +342,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.tfujisaki.SoundScreen2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

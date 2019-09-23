@@ -13,14 +13,15 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var soundOnButton: UIButton!
     @IBOutlet weak var soundOffButton: UIButton!
+    @IBOutlet weak var interruptNotice: UILabel!
     
     
     var audioPlayer: AVAudioPlayer!
     var audioSession: AVAudioSession!
 
     // Constant
-    let volumeSetting: Float = 0.1  // Max is 1.0
-    let max: Float = 0.1            // Must be same as volumeSetting
+    let volumeSetting: Float = 1.0     // Max is 1.0
+    let max: Float = 1.00              // Must be same as volumeSetting
     let fadeoutStep: Double = 10
     let timeInterval = 0.55
   
@@ -28,13 +29,20 @@ class ViewController: UIViewController {
     let soundFileName = "testSound"
     let fileExtension = "wav"
     
+    // String Constants
+    let offText = "フェードアウト"
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        registerForNotifications()
         
         audioSession = AVAudioSession.sharedInstance()
-        let currentMode = audioSession.mode
+        
+        var currentMode = audioSession.mode
+        currentMode = .default        // Set mode
+        
         do {
             try audioSession.setCategory(AVAudioSession.Category.playback, mode: currentMode)
         } catch {
@@ -61,6 +69,7 @@ class ViewController: UIViewController {
     }
     
     func soundOff() {
+        // soundOffButton.setTitle(offText, for: .normal)
         for i in 1...Int(fadeoutStep) {
             audioPlayer.volume = Float(max) - Float((Double(max)/fadeoutStep) * Double(i))
             Thread.sleep(forTimeInterval: timeInterval)
@@ -74,6 +83,18 @@ class ViewController: UIViewController {
     
     @IBAction func soundOffButtonTapped(_ sender: UIButton) {
         soundOff()
+    }
+    
+    func registerForNotifications() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(handleInterruption),
+                                               name: AVAudioSession.interruptionNotification,
+                                               object: AVAudioSession.sharedInstance())
+    }
+    
+    @objc func handleInterruption(_ notification: Notification) {
+        print("interrupt occured")
+        interruptNotice.text = "着信"
     }
     
 }

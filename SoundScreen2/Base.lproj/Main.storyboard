@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,51 +16,65 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sound Screen" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v5v-xP-aEk">
-                                <rect key="frame" x="34.5" y="48" width="306" height="51"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="流水音" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v5v-xP-aEk">
+                                <rect key="frame" x="34.5" y="28" width="306" height="51"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="306" id="jBL-Ji-8uP"/>
                                     <constraint firstAttribute="height" constant="51" id="z9S-Ar-gj6"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="40"/>
+                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="35"/>
                                 <color key="textColor" red="0.870391845703125" green="0.33984363079071045" blue="0.92691051959991455" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Im-Jn-Wbx">
-                                <rect key="frame" x="87" y="155" width="201" height="52"/>
+                                <rect key="frame" x="87" y="135" width="201" height="52"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="201" id="iOu-cK-kSe"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="33"/>
-                                <state key="normal" title="Sound On"/>
+                                <state key="normal" title="流水"/>
                                 <connections>
                                     <action selector="soiundOnButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PyK-vr-yg0"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FDq-AX-xb1">
-                                <rect key="frame" x="86" y="263" width="203" height="52"/>
+                                <rect key="frame" x="86" y="243" width="203" height="52"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="203" id="jUY-ES-CFo"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="33"/>
-                                <state key="normal" title="Sound Off"/>
+                                <state key="normal" title="止める"/>
                                 <connections>
                                     <action selector="soundOffButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kWT-pb-U2b"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zL6-GR-wrl">
+                                <rect key="frame" x="107.5" y="332" width="160" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="ZNl-hb-oXL"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="gj6-JW-6yV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.95647686719894409" green="0.81601929664611816" blue="0.88961160182952881" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="8Im-Jn-Wbx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HeE-Af-jtO"/>
+                            <constraint firstItem="zL6-GR-wrl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NTx-pr-R1w"/>
                             <constraint firstItem="v5v-xP-aEk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Pnt-6M-11c"/>
+                            <constraint firstItem="zL6-GR-wrl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="107.5" id="ezd-vn-Ic8"/>
                             <constraint firstItem="v5v-xP-aEk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="28" id="pLY-Vd-c10"/>
                             <constraint firstItem="8Im-Jn-Wbx" firstAttribute="top" secondItem="v5v-xP-aEk" secondAttribute="bottom" constant="56" id="qC8-87-haQ"/>
                             <constraint firstItem="FDq-AX-xb1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tZz-go-fBz"/>
                             <constraint firstItem="FDq-AX-xb1" firstAttribute="top" secondItem="8Im-Jn-Wbx" secondAttribute="bottom" constant="56" id="tdP-YG-GOp"/>
+                            <constraint firstItem="zL6-GR-wrl" firstAttribute="top" secondItem="FDq-AX-xb1" secondAttribute="bottom" constant="37" id="uTw-19-FBy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="interruptNotice" destination="zL6-GR-wrl" id="2If-uM-BM6"/>
                         <outlet property="soundOffButton" destination="FDq-AX-xb1" id="H1K-fQ-WFh"/>
                         <outlet property="soundOnButton" destination="8Im-Jn-Wbx" id="8qA-j7-7NF"/>
                     </connections>
