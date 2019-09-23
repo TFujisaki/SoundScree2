@@ -31,8 +31,12 @@ class ViewController: UIViewController {
     
     // String Constants
     let offText = "フェードアウト"
+    let alertTitle = "音量設定"
+    let alertMessage = "音量は最大ですか？"
+    let alertAciton = "OK"
     
     // Flag definition
+    
     // var soundOffFlag: Bool = false
     
     
@@ -74,20 +78,22 @@ class ViewController: UIViewController {
     
     
     func soundOn() {
-        let url = Bundle.main.url(forResource: soundFileName, withExtension: fileExtension)
+        if showAlert(title: alertTitle, message: alertMessage, btnText: alertAciton) {
+            let url = Bundle.main.url(forResource: soundFileName, withExtension: fileExtension)
         
-        do {
-            try audioPlayer = AVAudioPlayer(contentsOf: url!)
+            do {
+                try audioPlayer = AVAudioPlayer(contentsOf: url!)
             
-            // Buffer
-            audioPlayer.prepareToPlay()
-        } catch {
-            print("url   ", url!)
-            print(error)
-        }
+                // Buffer
+                audioPlayer.prepareToPlay()
+            } catch {
+                print("url   ", url!)
+                print(error)
+            }
         
-        audioPlayer.volume = volumeSetting
-        audioPlayer.play()
+            audioPlayer.volume = volumeSetting
+            audioPlayer.play()
+        }
     }
     
     func soundOff() {
@@ -108,6 +114,8 @@ class ViewController: UIViewController {
         soundOffFlag = true
     }
     
+    
+    // 着信を知らせる　あまり意味がない。
     func registerForNotifications() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(handleInterruption),
@@ -118,6 +126,14 @@ class ViewController: UIViewController {
     @objc func handleInterruption(_ notification: Notification) {
         print("interrupt occured")
         interruptNotice.text = "着信"
+    }
+    
+    func showAlert( title: String, message: String, btnText: String ) -> Bool {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: btnText, style: .default, handler: nil)
+        alert.addAction(defaultAction)
+        present(alert, animated: true, completion: nil)
+        return true
     }
     
 }
