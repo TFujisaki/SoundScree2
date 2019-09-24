@@ -38,13 +38,13 @@ class ViewController: UIViewController {
     
     // var soundOffFlag: Bool = false
     
-    
+    /*
     var soundOffFlag: Bool = false {
         willSet {
             print("willset name: \(self.soundOffFlag)")
             // print("name が \(oldValue) から \(newValue) に変更されようとしています。")
             if soundOffFlag {
-                soundOff()
+                // soundOff()
             }
         }
         
@@ -52,10 +52,14 @@ class ViewController: UIViewController {
             print("didset name: \(self.soundOffFlag)")
             // println("name が \(oldValue) から \(newValue) に変更されました。")
             if soundOffFlag {
-                soundOff()
+                // soundOff()
             }
         }
     }
+    */
+    
+    
+    
     
 
     override func viewDidLoad() {
@@ -73,7 +77,11 @@ class ViewController: UIViewController {
         } catch {
             print("Setting category to AVAudioSessionCategoryPlayback failed.")
         }
+        
+        soundOffButton.setTitle("tomeru", for: .normal)
     }
+    
+    
     
     
     func soundOn() {
@@ -101,6 +109,7 @@ class ViewController: UIViewController {
             Thread.sleep(forTimeInterval: timeInterval)
         }
         audioPlayer.stop()
+        // soundOffButton.setTitle("tomeru", for: .normal)
     }
     
     @IBAction func soiundOnButtonTapped(_ sender: UIButton) {
@@ -108,9 +117,22 @@ class ViewController: UIViewController {
     }
     
     @IBAction func soundOffButtonTapped(_ sender: UIButton) {
-        // soundOff()
+        // Swift 3スタイル
+        // まずキューを生成して、それを非同期スレッドで動かします。
+        DispatchQueue(label: "SondOffThred").async {
+            self.soundOff()
+        }
+        
+        // メインスレッドに戻ってUIに絡む
+        DispatchQueue.main.async {
+            self.changeButtonTile()
+        }
+        
+        // self.viewDidLoad()
+    }
+    
+    func changeButtonTile() {
         soundOffButton.setTitle(offText, for: .normal)
-        soundOffFlag = true
     }
     
     
