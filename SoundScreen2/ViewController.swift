@@ -33,12 +33,20 @@ class ViewController: UIViewController {
     let alertTitle = "音量設定"
     let alertMessage = "音量は最大ですか？"
     let alertAciton = "OK"
+    let stopText = "止める"
+    
+    // Tap counter
+    var counter = 0
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         soundOffButton.isEnabled = false
+        soundOffButton.setTitle(stopText, for: .normal)
+        
+        soundOnButton.isEnabled = true
+        
         
         registerForNotifications()
         audioSession = AVAudioSession.sharedInstance()
@@ -88,12 +96,18 @@ class ViewController: UIViewController {
     }
     
     @IBAction func soundOffButtonTapped(_ sender: UIButton) {
-        // 音のフェードアウトは別スレッドで実行する。
-        DispatchQueue(label: "SondOffThred").async {
-            self.soundOff()
-        }
+        counter += 1
         
-        changeButtonTile()
+        if counter == 1 {
+            // 音のフェードアウトは別スレッドで実行する。
+            DispatchQueue(label: "SondOffThred").async {
+                self.soundOff()
+            }
+            changeButtonTile()
+        } else {
+            counter = 0
+            self.viewDidLoad()
+        }
     }
     
     func changeButtonTile() {
