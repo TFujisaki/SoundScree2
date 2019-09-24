@@ -38,6 +38,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        soundOffButton.isEnabled = false
+        
         registerForNotifications()
         audioSession = AVAudioSession.sharedInstance()
         
@@ -52,6 +54,8 @@ class ViewController: UIViewController {
     }
     
     func soundOn() {
+        soundOffButton.isEnabled = true
+        
         if showAlert(title: alertTitle, message: alertMessage, btnText: alertAciton) {
             let url = Bundle.main.url(forResource: soundFileName, withExtension: fileExtension)
         
@@ -76,24 +80,20 @@ class ViewController: UIViewController {
             Thread.sleep(forTimeInterval: timeInterval)
         }
         audioPlayer.stop()
-        // soundOffButton.setTitle("tomeru", for: .normal)
     }
     
     @IBAction func soiundOnButtonTapped(_ sender: UIButton) {
+        soundOnButton.isEnabled = false
         soundOn()
     }
     
     @IBAction func soundOffButtonTapped(_ sender: UIButton) {
-        // Swift 3スタイル
-        // まずキューを生成して、それを非同期スレッドで動かします。
+        // 音のフェードアウトは別スレッドで実行する。
         DispatchQueue(label: "SondOffThred").async {
             self.soundOff()
         }
         
-        // メインスレッドに戻ってUIに絡む
-        DispatchQueue.main.async {
-            self.changeButtonTile()
-        }
+        changeButtonTile()
     }
     
     func changeButtonTile() {
