@@ -15,7 +15,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var soundOffButton: UIButton!
     @IBOutlet weak var interruptNotice: UILabel!
     
-    
     var audioPlayer: AVAudioPlayer!
     var audioSession: AVAudioSession!
 
