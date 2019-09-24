@@ -33,40 +33,12 @@ class ViewController: UIViewController {
     let alertTitle = "音量設定"
     let alertMessage = "音量は最大ですか？"
     let alertAciton = "OK"
-    
-    // Flag definition
-    
-    // var soundOffFlag: Bool = false
-    
-    /*
-    var soundOffFlag: Bool = false {
-        willSet {
-            print("willset name: \(self.soundOffFlag)")
-            // print("name が \(oldValue) から \(newValue) に変更されようとしています。")
-            if soundOffFlag {
-                // soundOff()
-            }
-        }
-        
-        didSet {
-            print("didset name: \(self.soundOffFlag)")
-            // println("name が \(oldValue) から \(newValue) に変更されました。")
-            if soundOffFlag {
-                // soundOff()
-            }
-        }
-    }
-    */
-    
-    
-    
-    
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         registerForNotifications()
-        
         audioSession = AVAudioSession.sharedInstance()
         
         var currentMode = audioSession.mode
@@ -77,12 +49,7 @@ class ViewController: UIViewController {
         } catch {
             print("Setting category to AVAudioSessionCategoryPlayback failed.")
         }
-        
-        soundOffButton.setTitle("tomeru", for: .normal)
     }
-    
-    
-    
     
     func soundOn() {
         if showAlert(title: alertTitle, message: alertMessage, btnText: alertAciton) {
@@ -127,14 +94,11 @@ class ViewController: UIViewController {
         DispatchQueue.main.async {
             self.changeButtonTile()
         }
-        
-        // self.viewDidLoad()
     }
     
     func changeButtonTile() {
         soundOffButton.setTitle(offText, for: .normal)
     }
-    
     
     // 着信を知らせる　あまり意味がない。
     func registerForNotifications() {
@@ -149,6 +113,7 @@ class ViewController: UIViewController {
         interruptNotice.text = "着信"
     }
     
+    // Alertで処理を止めたい。今はやり方がわからない。
     func showAlert( title: String, message: String, btnText: String ) -> Bool {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let defaultAction = UIAlertAction(title: btnText, style: .default, handler: nil)
